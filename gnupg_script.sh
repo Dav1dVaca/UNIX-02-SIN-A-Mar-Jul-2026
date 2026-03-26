@@ -2,3 +2,7 @@ uname -a # da informacion acerca del ordenador
 which gpg #ubicacion del binario de gpg
 gpg --version #me da la version e informacion adicional 
 gpg --full-generate-key # genero las llaves publicas y privadas 
+gpg --list-key # muestra todas las claves gpg publicas
+gpg --armor --export # exporta una clave publica gpg de un formato de texto
+gpg --list-secret-keys --keyid-format-long # listar las claves gpg secretas privadas 
+gpg --armor --export-secret-keys 1A2D50F7F787AE3A # exporta tu clave privada asociada al Id enviado
