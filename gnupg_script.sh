@@ -17,3 +17,4 @@ gpg --detach-sign cifradoadrian.txt.asc # crea una firma separada del archivo
 gpg --verify cifradoadrian.txt.asc # verifica la firma digital del celar sign
 gpg --edit-key adriangarciasnchez@gmail.com trust-4-save # abre el modo de edicion de una clase y posteriormente solicita permisos de confibilidad
 gpg --sign-key adriangarciasnchez@gmail.com # pone mi firma en la llave de mi compa
+gpg --encrypt --sign adriangarciasnchez@gmail.com cifradoadrian.txt # cifra el archivo usando la llave publica de mi compa
