@@ -8,3 +8,11 @@ rmdir -- -rf # Remove the "-rf" directory
 #If you want to clone submodules shallowly, also pass --shallow-submodules.
 # n to go up
 # N to go down
+touch script.sh # create script.sh
+chmod +x script.sh # everyone can execute
+chmod u+x script.sh # only owner can execute
+touch secreto.txt # create secreto.txt
+chmod o-r secreto.txt # hide reads to "others"
+touch privado # create privado 
+chmod u+rw,go-rwx privado # owner read/write, no one can do anything
+ls -l # comprobe the permissions
