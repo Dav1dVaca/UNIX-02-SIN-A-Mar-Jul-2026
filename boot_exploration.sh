@@ -16,3 +16,6 @@ chmod o-r secreto.txt # hide reads to "others"
 touch privado # create privado 
 chmod u+rw,go-rwx privado # owner read/write, no one can do anything
 ls -l # comprobe the permissions
+sudo echo "hola" > /etc/archivo_protegido # It doesn't work correctly because sudo doesn't apply to redirection (>)
+echo "hola" | sudo tee /etc/archivo_protegido > /dev/null # Write to a protected file using sudo correctly
+echo "hola" | sudo tee /etc/archivo_protegido # write "hola" on a protected achive using admin permission
