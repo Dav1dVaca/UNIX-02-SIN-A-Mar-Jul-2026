@@ -29,3 +29,11 @@ sudo su - # login on a complete root user
 sudo su # change to root user
 echo "$HOME" # expand the variable
 echo '$HOME' # print everything in the ''
+echo '#!/bin/sh' > hola.sh # create de file "hola.sh" indicate it going to interpretate on shell
+echo 'echo "Hola desde mi primer script"' >> hola.sh # add a line that print a message
+cat hola.sh # show the achive 
+./hola.sh # try to execute
+ls -l hola.sh # review permissions
+chmod +x hola.sh # give "x" permission to the file 
+ls -l hola.sh # review permissions
+./hola.sh # try to execute with the new permission
