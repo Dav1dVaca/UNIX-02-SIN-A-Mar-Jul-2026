@@ -37,3 +37,7 @@ ls -l hola.sh # review permissions
 chmod +x hola.sh # give "x" permission to the file 
 ls -l hola.sh # review permissions
 ./hola.sh # try to execute with the new permission
+ls /etc # list all the files on /etc
+sudo touch /etc/prueba.txt # create the file "prueba.txt" on /etc
+mkdir ~/mi_carpeta  # create the directory "my_carpeta"
+sudo apt install cowsay # install cowsay
