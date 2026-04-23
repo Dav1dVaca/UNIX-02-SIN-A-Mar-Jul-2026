@@ -23,3 +23,7 @@ echo "hola" | sudo tee /etc/archivo_protegido # write "hola" on a protected achi
 #CLASE JUEVES 04 ABRIL 2026
 sudo sh -c 'echo "chao" >> /etc/archivo_protegido' # add "chao" on the end of a protected file with admin permissions
 cat /etc/archivo_protegido # shows the content of "archivo_protegido" 
+sudo -i # start a interactive seccion on a root user
+exit # logout the root user
+sudo su - # login on a complete root user 
+sudo su # change to root user
