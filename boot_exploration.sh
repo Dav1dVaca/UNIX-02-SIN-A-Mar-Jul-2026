@@ -27,3 +27,5 @@ sudo -i # start a interactive seccion on a root user
 exit # logout the root user
 sudo su - # login on a complete root user 
 sudo su # change to root user
+echo "$HOME" # expand the variable
+echo '$HOME' # print everything in the ''
