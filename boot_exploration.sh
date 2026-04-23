@@ -19,3 +19,7 @@ ls -l # comprobe the permissions
 sudo echo "hola" > /etc/archivo_protegido # It doesn't work correctly because sudo doesn't apply to redirection (>)
 echo "hola" | sudo tee /etc/archivo_protegido > /dev/null # Write to a protected file using sudo correctly
 echo "hola" | sudo tee /etc/archivo_protegido # write "hola" on a protected achive using admin permission
+
+#CLASE JUEVES 04 ABRIL 2026
+sudo sh -c 'echo "chao" >> /etc/archivo_protegido' # add "chao" on the end of a protected file with admin permissions
+cat /etc/archivo_protegido # shows the content of "archivo_protegido" 
