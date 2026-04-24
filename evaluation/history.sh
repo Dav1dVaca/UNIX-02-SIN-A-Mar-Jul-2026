@@ -35,3 +35,6 @@
    32  ls -l runner.sh
    33  ls -l ajustes.conf
 #PROBLEMA 5
+35  chmod u+s runner.sh
+   36  ls -l runner.sh
+#PROBLEMA 6
