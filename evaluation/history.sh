@@ -30,3 +30,8 @@
  chmod 600 registros/sensores.log
    28  ls -l registros/sensores.log
 #PROBLEMA 4
+ chmod u+x runner.sh
+   31  chmod o-w ajustes.conf
+   32  ls -l runner.sh
+   33  ls -l ajustes.conf
+#PROBLEMA 5
