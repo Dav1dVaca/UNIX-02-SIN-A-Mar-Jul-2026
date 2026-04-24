@@ -27,3 +27,6 @@
    24  ls
    25  ls registros/
 #PROBLEMA 3
+ chmod 600 registros/sensores.log
+   28  ls -l registros/sensores.log
+#PROBLEMA 4
