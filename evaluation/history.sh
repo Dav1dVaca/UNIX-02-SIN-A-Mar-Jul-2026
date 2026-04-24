@@ -38,3 +38,10 @@
 35  chmod u+s runner.sh
    36  ls -l runner.sh
 #PROBLEMA 6
+39  chmod +t /tmp/kepler_zone
+   40  mkdir -p /tmp/kepler_zone
+   41  chmod +t /tmp/kepler_zone
+   42  ls -ld /tmp/kepler_zone
+   43  chmod o+x /tmp/kepler_zone
+   44  ls -ld /tmp/kepler_zone
+#PROBLEMA 7
