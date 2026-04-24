@@ -45,3 +45,9 @@
    43  chmod o+x /tmp/kepler_zone
    44  ls -ld /tmp/kepler_zone
 #PROBLEMA 7
+ 46  gpg --full-generate-key
+   47  gpg --list-keys
+   48  gpg --output registros/sensores.log.gpg --encrypt --recipient vega@kepler.lab registros/sensores.log
+   49  ls registros
+   50  ls registros/
+#PROBLEMA 8
