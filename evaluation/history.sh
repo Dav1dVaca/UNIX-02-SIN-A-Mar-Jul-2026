@@ -51,3 +51,8 @@
    49  ls registros
    50  ls registros/
 #PROBLEMA 8
+ 52  gpg --output ajustes.conf.asc --clearsign ajustes.conf
+   53  ls
+   54  gpg --verify runner.sh.sig runner.sh
+   55  gpg --output runner.sh.sig --detach-sign runner.sh
+   56  gpg --verify runner.sh.sig runner.sh
