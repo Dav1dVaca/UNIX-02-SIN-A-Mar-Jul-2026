@@ -4,3 +4,11 @@ ls Documents # Shows the files stored inside the Documents folder.
 ls -l # Displays a detailed list including permissions, size, and ownership.
 ls -r # Shows the files in reverse alphabetical order.
 ls -lr # Combines detailed view with reverse ordering.
+pwd # Shows the full path of the current working directory.
+cd Documents # Moves into the Documents folder using a relative path.
+cd / # Navigates directly to the system root directory.
+cd /home/sysadmin # Accesses the sysadmin home using an absolute path.
+cd School/Art # Moves into a nested directory structure step by step.
+cd .. # Goes back to the parent directory.
+cd . # Refers to the current directory without changing location.
+cd ~ # Returns to the user's home directory. 
