@@ -12,3 +12,8 @@ cd School/Art # Moves into a nested directory structure step by step.
 cd .. # Goes back to the parent directory.
 cd . # Refers to the current directory without changing location.
 cd ~ # Returns to the user's home directory. 
+ls -l /var/log/ # Shows detailed information of files inside /var/log.
+ls -lt /var/log # Sorts files by last modification time.
+ls -lS /var/log # Orders files based on their size.
+ls -lSr /var/log # Displays files sorted by size in ascending order.
+ls -r /var/log # Lists files in reverse alphabetical order.
