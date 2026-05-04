@@ -31,3 +31,10 @@ ls -l hello.sh # Confirms the updated permissions.
 sudo chown root hello.sh # Changes file ownership to root.
 ls -l hello.sh # Verifies the new file owner.
 sudo ./hello.sh # Executes the script with root privileges.
+cd ~/Documents # Navigates to the Documents folder to access files.
+cat animals.txt # Displays the complete content of the file.
+cat alpha.txt # Prints all lines of the file.
+head alpha.txt # Shows the first 10 lines by default.
+tail alpha.txt # Shows the last 10 lines by default.
+head -n 5 alpha.txt # Displays only the first 5 lines.
+tail -n 5 alpha.txt # Displays only the last 5 lines.
