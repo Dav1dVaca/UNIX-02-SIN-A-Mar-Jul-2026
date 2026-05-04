@@ -17,3 +17,9 @@ ls -lt /var/log # Sorts files by last modification time.
 ls -lS /var/log # Orders files based on their size.
 ls -lSr /var/log # Displays files sorted by size in ascending order.
 ls -r /var/log # Lists files in reverse alphabetical order.
+su - # Switches to the root account with a full login shell.
+exit # Closes the current session and returns to the previous user.
+sudo sl # Runs the 'sl' command with elevated privileges.
+sudo -u sysadmin sl # Executes a command as the sysadmin user.
+su -l # Opens a login shell for the root user.
+su --login # Loads the complete root environment in a new session.
