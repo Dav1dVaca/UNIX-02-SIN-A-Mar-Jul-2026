@@ -38,3 +38,9 @@ head alpha.txt # Shows the first 10 lines by default.
 tail alpha.txt # Shows the last 10 lines by default.
 head -n 5 alpha.txt # Displays only the first 5 lines.
 tail -n 5 alpha.txt # Displays only the last 5 lines.
+cat # Used to display the full content of a file.
+head # Allows previewing the beginning of a file.
+tail # Allows previewing the end section of a file.
+cp # Used to duplicate files or directories.
+mp # Used for organizing, renaming, or backing up files.
+dd # A low-level tool that copies data bit by bit, often used for advanced operations.
