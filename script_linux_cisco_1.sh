@@ -23,3 +23,11 @@ sudo sl # Runs the 'sl' command with elevated privileges.
 sudo -u sysadmin sl # Executes a command as the sysadmin user.
 su -l # Opens a login shell for the root user.
 su --login # Loads the complete root environment in a new session.
+cd ~/Documents # Moves to Documents to manage file permissions.
+ls -l hello.sh # Displays detailed file permissions.
+chmod u+x hello.sh # Grants execution permission to the file owner.
+ls -l hello.sh # Confirms the updated permissions.
+./hello.sh # Runs the script in the current directory.
+sudo chown root hello.sh # Changes file ownership to root.
+ls -l hello.sh # Verifies the new file owner.
+sudo ./hello.sh # Executes the script with root privileges.
