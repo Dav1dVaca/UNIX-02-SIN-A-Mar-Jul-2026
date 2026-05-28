@@ -9,4 +9,8 @@ id -gn
 echo "Grupo actual:$(id -gn)"
 # create an achive before the newgrp
 touch ~/antes_de_newgrp.txt
-ls -la ~/antes_de_newgrp.txt
+ls -la ~/antes_de_newgrp.txt 
+groupadd desarrolladores # create group "desarrolladores"
+newgrp desarrolladores # change to group "desarrolladores"
+id -gn # verify the active group change
+echo "Nuevo grupo activo:$(id -gn)"
