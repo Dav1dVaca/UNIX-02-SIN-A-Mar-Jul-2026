@@ -242,13 +242,11 @@ EOF
 
 # Cambiar shell de login de root a zsh dentro de la imagen,
 # para que chsh ya no haga falta y todo sea consistente.
-RUN chsh -s /usr/bin/zsh root
+RUN chsh -s /bin/bash root
 
 # Prompt institucional para los y las estudiantes del curso
 RUN cat >> /root/.zshrc <<'EOF'
 
-# ===== Valida si un comando fue ejecutado correctamente =====
-PROMPT='%F{cyan}[David-Vaca]%f %F{yellow}%1~%f %(?.%F{green}✔.%F{red}✘ %?)%f %# '
-EOF
 
-CMD ["/usr/bin/zsh"]
+
+CMD ["/bin/bash", "-l"]
