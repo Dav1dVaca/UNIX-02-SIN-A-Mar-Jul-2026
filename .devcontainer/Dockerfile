@@ -229,24 +229,8 @@ __set_prompt() {
     else
         mark="\[\e[31m\]✗ $ec\[\e[0m\]"
     fi
-    PS1="\[\e[36m\][David-Vaca]\[\e[0m\] \[\e[33m\]\W\[\e[0m\] $mark \$ "
+    PS1="\[\e[36m\][David_Vaca]\[\e[0m\] \[\e[33m\]\W\[\e[0m\] $mark \$ "
 }
 PROMPT_COMMAND=__set_prompt
 EOF
-# -------------------------------------------------------------------------
-# CMD: comando que se ejecuta por defecto al arrancar el contenedor
-# -------------------------------------------------------------------------
-# Lanza una shell bash interactiva. Codespaces la sobrescribe con su 
-# propia terminal integrada de VS Code, pero es buena práctica dejarla 
-# definida para que la imagen sea usable también con Docker puro.
-
-# Cambiar shell de login de root a zsh dentro de la imagen,
-# para que chsh ya no haga falta y todo sea consistente.
-RUN chsh -s /bin/bash root
-
-# Prompt institucional para los y las estudiantes del curso
-RUN cat >> /root/.zshrc <<'EOF'
-
-
-
-CMD ["/bin/bash", "-l"]
+CMD ["/bin/bash"]
