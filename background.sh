@@ -9,3 +9,6 @@ touch test123
 # Deletes a file
 echo "Deleting the file test123"
 rm test123
+
+echo "Sleeping for 30 seconds..."
+sleep 30 
