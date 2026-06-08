@@ -1,6 +1,7 @@
 #!/bin/bash
 set -x
 # This script will send the sleep command to the background.
+bash background.sh
 echo "Sleeping for 10 seconds..."
 sleep 10 &
 # Creates a file
@@ -12,3 +13,4 @@ rm test123
 
 echo "Sleeping for 30 seconds..."
 sleep 30 
+$ touch test && touch test123
