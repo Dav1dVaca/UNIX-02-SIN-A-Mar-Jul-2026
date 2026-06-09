@@ -1,6 +1,11 @@
-#! /bin/bash
+#!/bin/bash
 # Experimenting with exit codes
-ls -l > /dev/null
+ls -l /dev/null
 echo "The exit code of the ls command was: $?"
+
 lzl 2> /dev/null
 echo "The exit code of the non-existing lzl command was: $?"
+
+ls
+echo "Exiting with an exit code: 223"
+exit 223
