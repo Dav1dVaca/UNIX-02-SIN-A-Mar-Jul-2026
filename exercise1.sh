@@ -1,23 +1,25 @@
 #!/bin/bash
-# ejecutar script pasando nombre y apellido como argumentos
+# Execute the script passing first name and last name as arguments
 ./exercise1.sh David Vaca
-#dar permisos al archivo
+
+# Set execution permissions for the file
 chmod +x exercise1.sh
+
 #!/bin/bash
 
-# Asignar los argumentos a variables
-NOMBRE=$1
-APELLIDO=$2
+# Assign the arguments to variables
+FIRST_NAME=$1
+LAST_NAME=$2
 
-# Crear (o sobreescribir) el archivo output.txt
-# Escribir la fecha actual en formato DD-MM-YYYY
+# Create (or overwrite) the output.txt file
+# Write the current date in DD-MM-YYYY format
 date +"%d-%m-%Y" > output.txt
 
-# Escribir el nombre completo en output.txt (usamos >> para añadir al final)
-echo "$NOMBRE $APELLIDO" >> output.txt
+# Write the full name to output.txt (using >> to append to the end)
+echo "$FIRST_NAME $LAST_NAME" >> output.txt
 
-# Hacer una copia de seguridad llamada backup.txt
+# Create a backup copy named backup.txt
 cp output.txt backup.txt
 
-# Imprimir el contenido del archivo en la terminal
+# Print the content of the file to the standard output
 cat output.txt
