@@ -143,6 +143,51 @@ RUN echo "wireshark-common wireshark-common/install-setuid boolean false" \
 # El "&&" encadena comandos: ejecuta el siguiente SOLO SI el anterior
 # terminó bien. Si algo falla, el build se detiene con error (que es lo
 # que queremos: mejor un error claro que una imagen rota).
+#                   DOCUMENTACION
+# ----------------------------------------------------------------------------
+
+# Install all course software packages
+
+# ----------------------------------------------------------------------------
+
+# apt-get update downloads the latest package information from the
+
+# configured repositories.
+
+#
+
+# apt-get install downloads and installs the selected packages.
+
+#
+
+# -y automatically accepts installation prompts.
+
+#
+
+# --no-install-recommends installs only required packages and skips
+
+# optional recommended packages to keep the image smaller.
+
+#
+
+# All software is installed in a single RUN instruction because every
+
+# RUN creates a new Docker layer. Fewer layers improve caching efficiency
+
+# and reduce image size (BHB Ch.3).
+
+#
+
+# The && operator executes the next command only if the previous command
+
+# completed successfully, helping prevent incomplete builds (BHB Ch.1).
+
+#
+
+# The backslash character () is used to split long commands across
+
+# multiple lines for readability.
+#------------------------------------------------------------------------
 RUN apt-get update && apt-get install -y --no-install-recommends \
     \
     # === Editores de texto y shells (intérpretes de comandos) ===
@@ -152,6 +197,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     bash-completion \
     \
     # === Herramientas de 4ta generación ===
+    #                   DOCUMENTACION
+    # Text-processing tools heavily used in shell scripting (BHB Ch.2).
+    # gawk processes structured text and patterns.
+    # sed edits text streams automatically.
+    # grep searches text using patterns and regular expressions.
     # Estas son las protagonistas de las Unidades 2, 3 y 4:
     perl \
     make \
@@ -165,7 +215,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     # procps trae ps, top, kill (gestión de procesos).
     # less = paginador para leer archivos largos.
     # tree = muestra directorios como árbol.
-    # jq = procesa JSON desde la línea de comandos.
+    # jq processes JSON data directly from the command line.
     coreutils \
     findutils \
     procps \
@@ -174,9 +224,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     jq \
     \
     # === Páginas de manual (comando `man`) ===
-    # La imagen base de Kali viene sin documentación para
-    # ahorrar espacio. La reinstalamos porque en el curso "man bash" o
-    # "man grep" es material de consulta obligada.
+    # Provides manual pages used to learn commands and options.
+    # Examples include "man bash" and "man grep".
     man-db \
     manpages \
     manpages-posix \
@@ -189,18 +238,19 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
     locales \
     \
-    # === Linter (revisor automático de errores) para scripts Bash ===
+    # === Bash script analysis tool ===
+    # ShellCheck detects common scripting mistakes and bad practices.
     shellcheck \
     \
     # === Reconocimiento y escaneo de red ===
-    # nmap = el escáner de puertos más famoso.
+    # nmap discovers hosts, services and open ports on networks.
     # masscan = escaneo masivo de rangos grandes de IPs.
     nmap \
     masscan \
     \
     # === Captura y análisis de paquetes de red ===
-    # tcpdump = capturador clásico por terminal.
-    # tshark = versión de terminal de Wireshark.
+    # tcpdump captures network packets from the command line.
+    # tshark provides packet analysis features similar to Wireshark.
     tcpdump \
     tshark \
     \
@@ -216,9 +266,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     iputils-ping \
     \
     # === Anonimato: Tor y similares ===
-    # tor = cliente de la red Tor.
-    # torsocks = "envoltorio" que hace pasar cualquier comando por Tor.
-    # proxychains4 = encadena múltiples proxies.
+    # tor routes traffic through the Tor anonymity network.
+    # torsocks allows commands to use Tor transparently.
+    # proxychains4 routes applications through configured proxies.
     # obfs4proxy = ofusca el tráfico de Tor para evadir bloqueos.
     tor \
     torsocks \
