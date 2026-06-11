@@ -399,6 +399,19 @@ PROMPT_COMMAND=__set_prompt
 EOF
 # -------------------------------------------------------------------------
 # CMD: comando que se ejecuta por defecto al arrancar el contenedor
+#                   DOCUMENTATION
+# -------------------------------------------------------------------------
+# Default command executed when the container starts
+# -------------------------------------------------------------------------
+# CMD specifies the command that runs when a new container is launched.
+#
+# Unlike RUN, which executes during image creation, CMD executes when
+# the container starts.
+#
+# The container launches an interactive zsh session by default.
+#
+# Codespaces may replace this behavior with its own terminal integration,
+# but defining CMD makes the image usable outside Codespaces as well.
 # -------------------------------------------------------------------------
 # Lanza una shell bash interactiva. Codespaces la sobrescribe con su 
 # propia terminal integrada de VS Code, pero es buena práctica dejarla 
