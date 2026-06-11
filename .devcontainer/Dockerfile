@@ -105,6 +105,22 @@ ENV DEBIAN_FRONTEND=noninteractive \
 # normales (no-root) deben poder capturar paquetes. Como en el contenedor
 # siempre somos root, respondemos "false" POR ADELANTADO usando
 # debconf-set-selections para que no detenga el build esperando input.
+#-----------------------------------------------------------------------------
+#                   DOCUMENTACION
+# ----------------------------------------------------------------------------
+# Preconfigure Wireshark installation
+# ----------------------------------------------------------------------------
+# During installation, Wireshark normally asks whether non-root users
+# should be allowed to capture network packets.
+#
+# Automated container builds cannot respond to interactive prompts, so
+# the answer is stored in advance using debconf-set-selections.
+#
+# The pipe operator (|) sends the output of echo directly into another
+# command, a concept discussed in Black Hat Bash Chapter 1.
+#
+# This prevents the build process from stopping while waiting for input.
+#----------------------------------------------------------------------------
 RUN echo "wireshark-common wireshark-common/install-setuid boolean false" \
     | debconf-set-selections
 
