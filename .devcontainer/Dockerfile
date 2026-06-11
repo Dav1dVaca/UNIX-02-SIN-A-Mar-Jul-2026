@@ -353,6 +353,23 @@ WORKDIR /workspaces
 # - pull.rebase false: merge por defecto al hacer pull (más intuitivo)
 # - git lfs install --system: registra los hooks de LFS globalmente para
 #   que, si un repo los necesita, funcionen sin sorpresas.
+#                   DOCUMENTATION
+# ----------------------------------------------------------------------------
+# Configure Git system-wide
+# ----------------------------------------------------------------------------
+# safe.directory '*':
+# allows Git to trust repositories mounted by Codespaces, even when file
+# ownership differs from the root user inside the container.
+#
+# init.defaultBranch main:
+# makes "main" the default branch name for newly initialized repositories.
+#
+# pull.rebase false:
+# configures git pull to use merge behavior by default.
+#
+# git lfs install --system:
+# enables Git Large File Storage support for all users in the container.
+#--------------------------------------------------------------------------------
 RUN git config --system --add safe.directory '*' \
  && git config --system init.defaultBranch main \
  && git config --system pull.rebase false \
