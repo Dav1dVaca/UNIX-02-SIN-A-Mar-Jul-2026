@@ -281,6 +281,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
  # --- Después de instalar, activamos el idioma español ---
  # sed busca "# es_ES.UTF-8" en /etc/locale.gen y le quita el "#" para
  # activar esa línea. Luego locale-gen compila los archivos de idioma.
+ #                  DOCUMENTACION
+  # --- Enable Spanish locale ---
+ # sed modifies text directly inside files without opening an editor.
+ # Here it removes the leading "#" from the Spanish locale entry,
+ # enabling the locale configuration.
+ #
+ # locale-gen generates the locale files required by applications.
+ # This is an example of automated text processing using sed
+ # (BHB Ch.2).
+ #-----------------------------------------------------------------------------
  && sed -i 's/# es_ES.UTF-8/es_ES.UTF-8/' /etc/locale.gen \
  && locale-gen \
  \
@@ -288,12 +298,29 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
  # apt deja archivos de caché que ya no necesitamos después de instalar.
  # Borrarlos aquí (en el mismo RUN) hace la capa final más pequeña.
  # Si los borráramos en otro RUN, seguirían ocupando en la capa anterior.
+ #                  DOCUMENTACION
+  # --- Clean package cache ---
+ # apt stores temporary files and package indexes during installation.
+ #
+ # Removing them inside the same RUN instruction keeps the final image
+ # smaller because unnecessary files never become part of a previous
+ # Docker layer.
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
 
 # ----------------------------------------------------------------------------
 # SHELL: qué intérprete usar en los siguientes RUN
+#                   DOCUMENTACION
+# ----------------------------------------------------------------------------
+# Select Bash as the default shell for future RUN instructions
+# ----------------------------------------------------------------------------
+# Docker normally executes RUN commands using /bin/sh.
+#
+# Bash provides additional scripting features such as arrays, improved
+# conditionals and more advanced shell functionality (BHB Ch.1).
+#
+# Future RUN instructions will therefore use Bash instead of sh.
 # ----------------------------------------------------------------------------
 # Por defecto Docker usa /bin/sh (un shell más limitado y antiguo). Lo
 # cambiamos a bash por si agregamos más instrucciones con sintaxis
@@ -303,6 +330,16 @@ SHELL ["/bin/bash", "-c"]
 
 # ----------------------------------------------------------------------------
 # WORKDIR: directorio de trabajo al entrar al contenedor
+#                   DOCUMENTACION
+# ----------------------------------------------------------------------------
+# Define the default working directory
+# ----------------------------------------------------------------------------
+# WORKDIR sets the current directory for future RUN instructions and
+# interactive terminal sessions.
+#
+# Codespaces mounts repositories inside /workspaces, so using this
+# location places users close to the course files when the container
+# starts.
 # ----------------------------------------------------------------------------
 # Codespaces siempre monta el código del repositorio en
 # /workspaces/<nombre-del-repo>. Establecer /workspaces aquí hace que las
