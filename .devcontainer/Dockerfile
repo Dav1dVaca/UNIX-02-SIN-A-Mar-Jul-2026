@@ -23,7 +23,7 @@
 # En lugar de partir de cero, partimos de la imagen oficial de Kali Linux
 # en su versión "rolling" (actualización continua, siempre al día).
 # Todo lo que instalemos más abajo se apila ENCIMA de esta base.
-#                   DOCUMENTACION
+#                   DOCUMENTATION
 # ============================================================================
 # Docker builds images by executing instructions from top to bottom.
 #
@@ -53,7 +53,7 @@ FROM kalilinux/kali-rolling:latest
 # ----------------------------------------------------------------------------
 # ENV: variables de entorno permanentes dentro del contenedor
 # ----------------------------------------------------------------------------
-#                   DOCUMENTACION 
+#                   DOCUMENTATION
 # ----------------------------------------------------------------------------
 # Environment variables used throughout the container
 # ----------------------------------------------------------------------------
@@ -106,7 +106,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
 # siempre somos root, respondemos "false" POR ADELANTADO usando
 # debconf-set-selections para que no detenga el build esperando input.
 #-----------------------------------------------------------------------------
-#                   DOCUMENTACION
+#                   DOCUMENTATION
 # ----------------------------------------------------------------------------
 # Preconfigure Wireshark installation
 # ----------------------------------------------------------------------------
@@ -143,7 +143,7 @@ RUN echo "wireshark-common wireshark-common/install-setuid boolean false" \
 # El "&&" encadena comandos: ejecuta el siguiente SOLO SI el anterior
 # terminó bien. Si algo falla, el build se detiene con error (que es lo
 # que queremos: mejor un error claro que una imagen rota).
-#                   DOCUMENTACION
+#                   DOCUMENTATION
 # ----------------------------------------------------------------------------
 
 # Install all course software packages
@@ -197,7 +197,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     bash-completion \
     \
     # === Herramientas de 4ta generación ===
-    #                   DOCUMENTACION
+    #                   DOCUMENTATION
     # Text-processing tools heavily used in shell scripting (BHB Ch.2).
     # gawk processes structured text and patterns.
     # sed edits text streams automatically.
@@ -311,7 +311,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # ----------------------------------------------------------------------------
 # SHELL: qué intérprete usar en los siguientes RUN
-#                   DOCUMENTACION
+#                   DOCUMENTATION
 # ----------------------------------------------------------------------------
 # Select Bash as the default shell for future RUN instructions
 # ----------------------------------------------------------------------------
@@ -330,7 +330,7 @@ SHELL ["/bin/bash", "-c"]
 
 # ----------------------------------------------------------------------------
 # WORKDIR: directorio de trabajo al entrar al contenedor
-#                   DOCUMENTACION
+#                   DOCUMENTATION
 # ----------------------------------------------------------------------------
 # Define the default working directory
 # ----------------------------------------------------------------------------
@@ -406,12 +406,45 @@ EOF
 
 # Cambiar shell de login de root a zsh dentro de la imagen,
 # para que chsh ya no haga falta y todo sea consistente.
+#                   DOCUMENTATION
+# ----------------------------------------------------------------------------
+# Change the default login shell
+# ----------------------------------------------------------------------------
+# chsh changes the login shell associated with a user account.
+#
+# Here the root user is configured to use zsh instead of bash when a
+# new interactive session starts.
+#
+# This keeps the environment consistent because zsh is the shell that
+# will be launched by default when the container starts.
 RUN chsh -s /usr/bin/zsh root
 
 # Prompt institucional para los y las estudiantes del curso
+#                   DOCUMENTATION
+# ----------------------------------------------------------------------------
+# Configure the Zsh prompt using a here-document
+# ----------------------------------------------------------------------------
+# A here-document (<<EOF) allows multiple lines of text to be passed
+# directly to another command without creating a temporary file.
+#
+# The cat command appends the enclosed configuration to /root/.zshrc.
+#
+# The .zshrc file is loaded automatically whenever an interactive zsh
+# session starts.
 RUN cat >> /root/.zshrc <<'EOF'
 
 # ===== Valida si un comando fue ejecutado correctamente =====
+#                   DOCUMENTATION
+# ===== Custom course prompt =====
+# The PROMPT variable defines how the command prompt appears.
+#
+# It displays:
+# - the student's name in cyan
+# - the current directory in yellow
+# - a green check mark when the previous command succeeded
+# - a red error code when the previous command failed
+#
+# This provides immediate visual feedback about command execution
 PROMPT='%F{cyan}[David-Vaca]%f %F{yellow}%1~%f %(?.%F{green}✔.%F{red}✘ %?)%f %# '
 EOF
 
