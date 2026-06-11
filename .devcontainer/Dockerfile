@@ -339,7 +339,7 @@ SHELL ["/bin/bash", "-c"]
 #
 # Codespaces mounts repositories inside /workspaces, so using this
 # location places users close to the course files when the container
-# starts.
+# starts
 # ----------------------------------------------------------------------------
 # Codespaces siempre monta el código del repositorio en
 # /workspaces/<nombre-del-repo>. Establecer /workspaces aquí hace que las
