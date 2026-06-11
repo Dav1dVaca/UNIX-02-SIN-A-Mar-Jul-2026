@@ -53,6 +53,26 @@ FROM kalilinux/kali-rolling:latest
 # ----------------------------------------------------------------------------
 # ENV: variables de entorno permanentes dentro del contenedor
 # ----------------------------------------------------------------------------
+#                   DOCUMENTACION 
+# ----------------------------------------------------------------------------
+# Environment variables used throughout the container
+# ----------------------------------------------------------------------------
+# Environment variables provide configuration values that programs can
+# read while running (BHB Ch.1 - environment variables).
+#
+# DEBIAN_FRONTEND=noninteractive:
+# prevents package installers from waiting for interactive user input.
+#
+# LANG and LC_ALL:
+# define the language and character encoding used by applications.
+# UTF-8 ensures that accented characters and symbols display correctly.
+#
+# TERM=xterm-256color:
+# informs terminal applications that the terminal supports 256 colors.
+#
+# The backslash character (\) continues the instruction onto the next
+# line to improve readability.
+#--------------------------------------------------------------------------
 # Las variables de entorno son "ajustes globales" que cualquier programa
 # del sistema puede leer. Se escriben en MAYÚSCULAS por convención.
 #
