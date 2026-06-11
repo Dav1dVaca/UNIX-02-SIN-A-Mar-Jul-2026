@@ -23,6 +23,30 @@
 # En lugar de partir de cero, partimos de la imagen oficial de Kali Linux
 # en su versión "rolling" (actualización continua, siempre al día).
 # Todo lo que instalemos más abajo se apila ENCIMA de esta base.
+#                   DOCUMENTACION
+# ============================================================================
+# Docker builds images by executing instructions from top to bottom.
+#
+# Each instruction creates a separate image layer. Docker can reuse
+# unchanged layers from its cache, making future builds faster.
+#
+# Because Docker uses layer caching, the order of instructions matters.
+# If an early instruction changes, Docker must rebuild every layer that
+# comes after it.
+#
+# These concepts are introduced in Black Hat Bash Chapter 3 when working
+# with Kali Linux containers and laboratory environments.
+# ============================================================================
+
+
+# ----------------------------------------------------------------------------
+# Base image used for the course environment
+# ----------------------------------------------------------------------------
+# A Docker image acts as a template that already contains an operating
+# system and software. Additional layers are added on top of this image.
+#
+# Kali Linux is selected because it includes many networking and security
+# tools that will be used throughout the course (BHB Ch.3).
 FROM kalilinux/kali-rolling:latest
 
 
