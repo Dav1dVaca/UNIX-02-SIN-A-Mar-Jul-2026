@@ -18,3 +18,12 @@ if check_if_root; then
 else
     echo "User is not root!"
 fi
+
+# create luna user
+useradd luna
+# check if the user was created
+su - luna
+# check the user 
+whoami
+#check if the user is root
+bash check_if_root.sh
