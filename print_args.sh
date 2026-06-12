@@ -2,4 +2,4 @@
 print_args(){
  echo "first: ${1}, second: ${2}, third: ${3}"
 }
-print_args No Starch Press
+print_args No starch press
