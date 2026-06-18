@@ -10,3 +10,8 @@ awk '{print $1}' log.txt # print the first column of log.txt
 awk '{print $1,$2,$3}' log.txt # print the three first columns of the log.txt
 awk '{print $2}' log.txt # print the second column of log.txt
 awk '{print $3}' log.txt # print the third column of log.txt
+awk '{print $1,$NF}' log.txt # print the first and last column 
+# EDIT FILE COMANDS
+echo "David,18,Quito" > example_csv.txt
+echo "Kevin,19,Guayaquil" >> example_csv.txt
+echo "Adrian,18,Cuenca" >> example_csv.txt
