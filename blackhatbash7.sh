@@ -15,3 +15,9 @@ awk '{print $1,$NF}' log.txt # print the first and last column
 echo "David,18,Quito" > example_csv.txt
 echo "Kevin,19,Guayaquil" >> example_csv.txt
 echo "Adrian,18,Cuenca" >> example_csv.txt
+
+awk -F',' '{print $1}' example_csv.txt # -F',' set the field separator to comma, print the first column of example_csv.txt
+awk 'NR < 10' log.txt # print the first 10 lines of log.txt
+grep "42.236.10.117" log.txt # search for the ip address in log.txt
+awk '{print $7}' log.txt # print the seventh column of log.txt, which contains the requested URL
+grep "42.236.10.117" log.txt | awk '{print $7}' # search for the ip address in log.txt and print the requested URL
