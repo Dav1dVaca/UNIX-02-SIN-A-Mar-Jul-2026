@@ -21,3 +21,10 @@ awk 'NR < 10' log.txt # print the first 10 lines of log.txt
 grep "42.236.10.117" log.txt # search for the ip address in log.txt
 awk '{print $7}' log.txt # print the seventh column of log.txt, which contains the requested URL
 grep "42.236.10.117" log.txt | awk '{print $7}' # search for the ip address in log.txt and print the requested URL
+sed 's/Mozilla/Godzilla/g' log.txt # replace all occurrences of "Mozilla" with "Godzilla" in log.txt
+grep "Mozilla" log.txt  # search for "Mozilla" in log.txt to verify the replacement
+grep "Godzilla" log.txt # search for "Mozilla" and "Godzilla" in log.txt to verify the replacement
+
+sed 's/Mozilla/Godzilla/g' log.txt > newlog.txt # create a new file called newlog.txt with all occurrences of "Mozilla" replaced with "Godzilla"
+grep "Godzilla" newlog.txt # search for "Godzilla" in the modified file
+grep "Mozilla" newlog.txt # search for "Mozilla" in the modified file
