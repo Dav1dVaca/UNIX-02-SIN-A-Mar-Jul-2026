@@ -28,3 +28,6 @@ grep "Godzilla" log.txt # search for "Mozilla" and "Godzilla" in log.txt to veri
 sed 's/Mozilla/Godzilla/g' log.txt > newlog.txt # create a new file called newlog.txt with all occurrences of "Mozilla" replaced with "Godzilla"
 grep "Godzilla" newlog.txt # search for "Godzilla" in the modified file
 grep "Mozilla" newlog.txt # search for "Mozilla" in the modified file
+
+sed -i '1d' newlog.txt # delete the first line of newlog.txt, -i edit the file in place
+head newlog.txt # display the first 10 lines of newlog.txt to verify the deletion of the first line
