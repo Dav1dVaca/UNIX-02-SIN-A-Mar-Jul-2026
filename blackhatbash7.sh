@@ -31,3 +31,10 @@ grep "Mozilla" newlog.txt # search for "Mozilla" in the modified file
 
 sed -i '1d' newlog.txt # delete the first line of newlog.txt, -i edit the file in place
 head newlog.txt # display the first 10 lines of newlog.txt to verify the deletion of the first line
+
+sed -i '$d' newlog.txt # delete the last line of newlog.txt, -i edit the file in place, $d delete the last line
+git diff newlog.txt # show the differences between the original file and the modified file
+sed 's/ //g' log.txt > newlog1.txt # remove all spaces from log.txt and save the result to newlog1.txt
+sed '8,10d' newlog1.txt # delete lines 8 to 10 from newlog1.txt, 8,10d delete lines 8 to 10
+sed -n '10,15 p' log.txt    # print lines 10 to 15 from log.txt, -n suppress automatic printing, 10,15 p print lines 10 to 15
+
