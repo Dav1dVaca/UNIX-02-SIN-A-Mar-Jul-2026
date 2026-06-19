@@ -38,3 +38,6 @@ sed 's/ //g' log.txt > newlog1.txt # remove all spaces from log.txt and save the
 sed '8,10d' newlog1.txt # delete lines 8 to 10 from newlog1.txt, 8,10d delete lines 8 to 10
 sed -n '10,15 p' log.txt    # print lines 10 to 15 from log.txt, -n suppress automatic printing, 10,15 p print lines 10 to 15
 
+sleep 300 & # run the sleep command in the background for 300 seconds
+jobs 
+fg %1
